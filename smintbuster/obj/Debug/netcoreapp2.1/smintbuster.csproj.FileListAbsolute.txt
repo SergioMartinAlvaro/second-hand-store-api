@@ -1,0 +1,14 @@
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.deps.json
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.runtimeconfig.json
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.runtimeconfig.dev.json
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.dll
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.pdb
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.csproj.CoreCompileInputs.cache
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorAssemblyInfo.cache
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorAssemblyInfo.cs
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.AssemblyInfoInputs.cache
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.AssemblyInfo.cs
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorTargetAssemblyInfo.cache
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.dll
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.pdb
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.csprojAssemblyReference.cache

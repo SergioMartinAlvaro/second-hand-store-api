@@ -42,7 +42,9 @@ namespace smintbuster.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(150)", nullable: true)
+                    NickName = table.Column<string>(type: "nvarchar(150)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(150)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(150)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -36,10 +36,12 @@ namespace smintbuster.Controllers
         {
             var applicationUser = new ApplicationUser()
             {
-                UserName = model.UserName,
+                NickName = model.NickName,
                 Email = model.Email,
-                FullName = model.FullName
+                FirstName = model.FirstName,
+                LastName = model.LastName
             };
+            applicationUser.UserName = model.NickName;
 
             try
             {
@@ -56,7 +58,7 @@ namespace smintbuster.Controllers
         //POST :  /api/login
         public async Task<IActionResult> Login(LoginModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.UserName);
+            var user = await _userManager.FindByNameAsync(model.NickName);
             if(user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var tokenDescriptor = new SecurityTokenDescriptor
@@ -64,7 +66,7 @@ namespace smintbuster.Controllers
                     Subject = new ClaimsIdentity(new Claim[] {
                         new Claim("UserID", user.Id.ToString())
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(5),
+                    Expires = DateTime.UtcNow.AddDays(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                     };
                 var tokenHandler = new JwtSecurityTokenHandler();

@@ -9,7 +9,11 @@ namespace smintbuster.Modals
 {
     public class ApplicationUser : IdentityUser
     {
+        [Column(TypeName = "nvarchar(150)")]
+        public string NickName { get; set; }
         [Column(TypeName ="nvarchar(150)")]
-        public string FullName { get; set; }
+        public string FirstName { get; set; }
+        [Column(TypeName = "nvarchar(150)")]
+        public string LastName { get; set; }
     }
 }

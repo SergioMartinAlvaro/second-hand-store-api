@@ -193,7 +193,13 @@ namespace smintbuster.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("NickName")
                         .HasColumnType("nvarchar(150)");
 
                     b.ToTable("ApplicationUser");

@@ -60,10 +60,6 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.9, )"
-            },
-            "Swagger-Net": {
-              "target": "Package",
-              "version": "[8.3.22.101, )"
             }
           },
           "imports": [

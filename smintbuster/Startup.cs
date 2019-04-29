@@ -61,7 +61,7 @@ namespace smintbuster
             }).AddJwtBearer(x => {
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = false;
-                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -86,6 +86,8 @@ namespace smintbuster
                 .AllowAnyHeader()
                 .AllowAnyMethod();
             });
+
+            app.UseAuthentication();
 
             app.UseMvc();
         }

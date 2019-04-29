@@ -10,7 +10,7 @@ using smintbuster.Modals;
 namespace smintbuster.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
-    [Migration("20190418155446_InitialCreate")]
+    [Migration("20190429150200_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -195,7 +195,13 @@ namespace smintbuster.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("NickName")
                         .HasColumnType("nvarchar(150)");
 
                     b.ToTable("ApplicationUser");

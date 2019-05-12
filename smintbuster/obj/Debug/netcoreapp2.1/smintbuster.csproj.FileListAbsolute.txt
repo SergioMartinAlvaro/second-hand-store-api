@@ -11,3 +11,4 @@ C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\
 C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorTargetAssemblyInfo.cache
 C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.dll
 C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.pdb
+C:\Users\Sergi\Desktop\TFG-BACK\smintbuster\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.csprojAssemblyReference.cache

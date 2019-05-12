@@ -251,6 +251,11 @@ namespace smintbuster.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
+
+            modelBuilder.Entity<ApplicationCategory>(eb =>
+            {
+                eb.Property(b => b.Name).HasColumnType("varchar(200)");
+            });
 #pragma warning restore 612, 618
         }
     }

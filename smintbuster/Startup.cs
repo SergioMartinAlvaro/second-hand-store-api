@@ -46,7 +46,7 @@ namespace smintbuster
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"))
             );
 
-            services.AddDbContext<CategoryContext>
+            services.AddDbContext<ShopContext>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>()

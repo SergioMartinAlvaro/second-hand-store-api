@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,59 +11,56 @@ namespace smintbuster.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class ProductModelsController : ControllerBase
     {
         private readonly ShopContext _context;
 
-        public CategoryController(ShopContext context)
+        public ProductModelsController(ShopContext context)
         {
             _context = context;
         }
 
-        // GET: api/Category
+        // GET: api/ProductModels
         [HttpGet]
-        [Authorize]
-        public IEnumerable<CategoryModel> GetCategories()
+        public IEnumerable<ProductModel> GetProducts()
         {
-            return _context.Categories;
+            return _context.Products;
         }
 
-        // GET: api/Category/5
+        // GET: api/ProductModels/5
         [HttpGet("{id}")]
-        [Authorize]
-        public async Task<IActionResult> GetCategoryModel([FromRoute] int id)
+        public async Task<IActionResult> GetProductModel([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var categoryModel = await _context.Categories.FindAsync(id);
+            var productModel = await _context.Products.FindAsync(id);
 
-            if (categoryModel == null)
+            if (productModel == null)
             {
                 return NotFound();
             }
 
-            return Ok(categoryModel);
+            return Ok(productModel);
         }
 
-        // PUT: api/Category/5
+        // PUT: api/ProductModels/5
         [HttpPut("{id}")]
-        [Authorize]
-        public async Task<IActionResult> PutCategoryModel([FromRoute] int id, [FromBody] CategoryModel categoryModel)
+        public async Task<IActionResult> PutProductModel([FromRoute] int id, [FromBody] ProductModel productModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != categoryModel.CategoryId)
+            if (id != productModel.ProductId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(categoryModel).State = EntityState.Modified;
+            _context.Entry(productModel).State = EntityState.Modified;
 
             try
             {
@@ -72,7 +68,7 @@ namespace smintbuster.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryModelExists(id))
+                if (!ProductModelExists(id))
                 {
                     return NotFound();
                 }
@@ -85,47 +81,45 @@ namespace smintbuster.Controllers
             return NoContent();
         }
 
-        // POST: api/Category
+        // POST: api/ProductModels
         [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> PostCategoryModel([FromBody] CategoryModel categoryModel)
+        public async Task<IActionResult> PostProductModel([FromBody] ProductModel productModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Categories.Add(categoryModel);
+            _context.Products.Add(productModel);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategoryModel", new { id = categoryModel.CategoryId }, categoryModel);
+            return CreatedAtAction("GetProductModel", new { id = productModel.ProductId }, productModel);
         }
 
-        // DELETE: api/Category/5
+        // DELETE: api/ProductModels/5
         [HttpDelete("{id}")]
-        [Authorize]
-        public async Task<IActionResult> DeleteCategoryModel([FromRoute] int id)
+        public async Task<IActionResult> DeleteProductModel([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var categoryModel = await _context.Categories.FindAsync(id);
-            if (categoryModel == null)
+            var productModel = await _context.Products.FindAsync(id);
+            if (productModel == null)
             {
                 return NotFound();
             }
 
-            _context.Categories.Remove(categoryModel);
+            _context.Products.Remove(productModel);
             await _context.SaveChangesAsync();
 
-            return Ok(categoryModel);
+            return Ok(productModel);
         }
 
-        private bool CategoryModelExists(int id)
+        private bool ProductModelExists(int id)
         {
-            return _context.Categories.Any(e => e.CategoryId == id);
+            return _context.Products.Any(e => e.ProductId == id);
         }
     }
 }

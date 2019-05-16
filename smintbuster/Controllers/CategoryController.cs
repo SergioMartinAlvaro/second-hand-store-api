@@ -26,7 +26,14 @@ namespace smintbuster.Controllers
         [Authorize]
         public IEnumerable<CategoryModel> GetCategories()
         {
-            return _context.Categories;
+            var categories = _context.Categories;
+            foreach(var categoryModel in categories)
+            {
+                IEnumerable<ProductModel> Products = GetProductsByCategoryId(categoryModel.CategoryId);
+
+                categoryModel.Products = Products.ToList<ProductModel>();
+            }
+            return categories;
         }
 
         // GET: api/Category/5
@@ -45,6 +52,10 @@ namespace smintbuster.Controllers
             {
                 return NotFound();
             }
+
+            IEnumerable<ProductModel> Products = GetProductsByCategoryId(categoryModel.CategoryId);
+
+            categoryModel.Products = Products.ToList<ProductModel>();
 
             return Ok(categoryModel);
         }
@@ -126,6 +137,21 @@ namespace smintbuster.Controllers
         private bool CategoryModelExists(int id)
         {
             return _context.Categories.Any(e => e.CategoryId == id);
+        }
+
+        private dynamic GetProductsByCategoryId(int id)
+        {
+            return from b in _context.Products
+                        where b.CategoryId.Equals(id)
+                        select new ProductModel {
+                            ProductId = b.ProductId,
+                            ProductName = b.ProductName,
+                            ProductDescription = b.ProductDescription,
+                            ProductImage = b.ProductImage,
+                            ProductPrice = b.ProductPrice,
+                            CategoryId = b.CategoryId,
+                            UserId = b.UserId
+                        };
         }
     }
 }

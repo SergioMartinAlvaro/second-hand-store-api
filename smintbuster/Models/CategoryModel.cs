@@ -16,6 +16,6 @@ namespace smintbuster.Modals
         public string CategoryImage { get; set; }
         [DataType(DataType.Date)]
         public DateTime CreatedAt { get; set; }
-        public ICollection<ProductModel> Products { get; set; }
+        public IEnumerable<ProductModel> Products { get; set; }
     }
 }

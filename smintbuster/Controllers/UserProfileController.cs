@@ -32,7 +32,8 @@ namespace smintbuster.Controllers
                 user.NickName,
                 user.FirstName,
                 user.LastName,
-                user.Email
+                user.Email,
+                user.UserType
             };
         }
     }

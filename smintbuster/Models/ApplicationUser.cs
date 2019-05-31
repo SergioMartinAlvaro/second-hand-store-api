@@ -17,5 +17,7 @@ namespace smintbuster.Modals
         public string LastName { get; set; }
         [Column(TypeName = "nvarchar(150)")]
         public string UserType { get; set; }
+        [Column(TypeName = "nvarchar(150)")]
+        public string Email { get; set; }
     }
 }

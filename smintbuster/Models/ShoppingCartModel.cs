@@ -13,6 +13,6 @@ namespace smintbuster.Models
         public int ShoppingCartId { get; set; }
         public bool CartStatus { get; set; }    
         public int UserId { get; set; }
-        public ICollection<ProductModel> products { get; set; }
+        // public ICollection<ProductModel> products { get; set; }
     }
 }

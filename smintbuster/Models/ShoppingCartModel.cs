@@ -12,7 +12,7 @@ namespace smintbuster.Models
         [Key]
         public int ShoppingCartId { get; set; }
         public bool CartStatus { get; set; }    
-        public int UserId { get; set; }
+        public string User { get; set; }
         // public ICollection<ProductModel> products { get; set; }
     }
 }

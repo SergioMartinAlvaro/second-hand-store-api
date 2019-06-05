@@ -29,15 +29,21 @@ namespace smintbuster.Controllers
         }
 
         // GET: api/ShoppingCartModels/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetShoppingCartModel([FromRoute] int id)
+        [HttpGet("{user}")]
+        public async Task<IActionResult> GetShoppingCartModel([FromRoute] string user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var shoppingCartModel = await _context.ShoppingCarts.FindAsync(id);
+            var shoppingCartModel = await _context.ShoppingCarts
+                .Where(p => p.CartStatus == true && p.User == user)
+                .Select(p => new ShoppingCartModel() {
+                                                        CartStatus = p.CartStatus,
+                                                        ShoppingCartId = p.ShoppingCartId,
+                                                        User = p.User
+                                                     }).ToListAsync();
 
             if (shoppingCartModel == null)
             {

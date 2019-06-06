@@ -39,7 +39,8 @@ namespace smintbuster.Controllers
                 NickName = model.NickName,
                 Email = model.Email,
                 FirstName = model.FirstName,
-                LastName = model.LastName
+                LastName = model.LastName,
+                UserType = model.UserType
             };
             applicationUser.UserName = model.NickName;
 

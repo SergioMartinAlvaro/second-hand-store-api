@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AQAAPI.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,8 +30,9 @@ namespace smintbuster.Controllers
         }
 
         // GET: api/ShoppingCartModels/5
-        [HttpGet("{user}")]
-        public async Task<IActionResult> GetShoppingCartModel([FromRoute] string user)
+        [HttpGet]
+        [QueryStringConstraint("user", true)]
+        public async Task<IActionResult> GetShoppingCartModelByUser(string user)
         {
             if (!ModelState.IsValid)
             {
@@ -44,6 +46,32 @@ namespace smintbuster.Controllers
                                                         ShoppingCartId = p.ShoppingCartId,
                                                         User = p.User
                                                      }).ToListAsync();
+
+            if (shoppingCartModel == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(shoppingCartModel);
+        }
+
+        // GET: api/ShoppingCartModels/5
+        [HttpGet]
+        public async Task<IActionResult> GetShoppingCartModel([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var shoppingCartModel = await _context.ShoppingCarts
+                .Where(p => p.CartStatus == true && p.ShoppingCartId == id)
+                .Select(p => new ShoppingCartModel()
+                {
+                    CartStatus = p.CartStatus,
+                    ShoppingCartId = p.ShoppingCartId,
+                    User = p.User
+                }).ToListAsync();
 
             if (shoppingCartModel == null)
             {
@@ -130,3 +158,5 @@ namespace smintbuster.Controllers
         }
     }
 }
+
+

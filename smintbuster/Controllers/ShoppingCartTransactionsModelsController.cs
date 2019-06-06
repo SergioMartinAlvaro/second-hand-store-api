@@ -43,6 +43,7 @@ namespace smintbuster.Controllers
                     product => product.ProductId,
                     (shop, product) => new
                     {
+                        Id = shop.Id,
                         ShoppingCartId = shop.ShoppingCartId,
                         ProductImage = product.ProductImage,
                         ProductId = product.ProductId,

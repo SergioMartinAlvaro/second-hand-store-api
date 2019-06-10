@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AQAAPI.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,8 +29,9 @@ namespace smintbuster.Controllers
         }
 
         // GET: api/ProductModels/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductModel([FromRoute] int id)
+        [HttpGet]
+        [QueryStringConstraint("id",true)]
+        public async Task<IActionResult> GetProductModel(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -37,6 +39,26 @@ namespace smintbuster.Controllers
             }
 
             var productModel = await _context.Products.FindAsync(id);
+
+            if (productModel == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(productModel);
+        }
+
+        [HttpGet]
+        [QueryStringConstraint("userId", true)]
+        public async Task<IActionResult> GetProductModelByUserId(string userId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var productModel = await _context.Products.Where(p => p.UserId == userId).ToListAsync();
+                
 
             if (productModel == null)
             {

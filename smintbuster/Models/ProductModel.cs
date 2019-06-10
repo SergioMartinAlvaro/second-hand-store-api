@@ -14,7 +14,7 @@ namespace smintbuster.Modals
         public string ProductDescription { get; set; }
         public float ProductPrice { get; set; }
         public string ProductImage { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int CategoryId { get; set; }
     }
 }

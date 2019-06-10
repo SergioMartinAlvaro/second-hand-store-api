@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AQAAPI.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using smintbuster.Modals;
+using smintbuster.Models;
 
 namespace smintbuster.Controllers
 {
@@ -100,7 +102,7 @@ namespace smintbuster.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(productModel);
         }
 
         // POST: api/ProductModels
@@ -120,6 +122,7 @@ namespace smintbuster.Controllers
 
         // DELETE: api/ProductModels/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteProductModel([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -136,7 +139,7 @@ namespace smintbuster.Controllers
             _context.Products.Remove(productModel);
             await _context.SaveChangesAsync();
 
-            return Ok(productModel);
+            return NoContent();
         }
 
         private bool ProductModelExists(int id)

@@ -26,3 +26,17 @@ C:\Users\sergioMar\Desktop\TFG\second-hand-store-api\smintbuster\obj\Debug\netco
 C:\Users\sergioMar\Desktop\TFG\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorTargetAssemblyInfo.cache
 C:\Users\sergioMar\Desktop\TFG\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.dll
 C:\Users\sergioMar\Desktop\TFG\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.pdb
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.deps.json
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.runtimeconfig.json
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.runtimeconfig.dev.json
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.dll
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\bin\Debug\netcoreapp2.1\smintbuster.pdb
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.csprojAssemblyReference.cache
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.csproj.CoreCompileInputs.cache
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorAssemblyInfo.cache
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorAssemblyInfo.cs
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.AssemblyInfoInputs.cache
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.AssemblyInfo.cs
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.RazorTargetAssemblyInfo.cache
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.dll
+C:\Users\sergioMar\Desktop\TFG ENTREGAR\second-hand-store-api\smintbuster\obj\Debug\netcoreapp2.1\smintbuster.pdb

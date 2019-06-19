@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using smintbuster.Modals;
 
-namespace smintbuster.Migrations.Category
+namespace smintbuster.Migrations.Shop
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20190515231628_ShopDatabase20190516")]
-    partial class ShopDatabase20190516
+    [Migration("20190617163412_MigrateShop")]
+    partial class MigrateShop
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,7 +56,7 @@ namespace smintbuster.Migrations.Category
 
                     b.Property<float>("ProductPrice");
 
-                    b.Property<int>("UserId");
+                    b.Property<string>("UserId");
 
                     b.HasKey("ProductId");
 
@@ -73,7 +73,7 @@ namespace smintbuster.Migrations.Category
 
                     b.Property<bool>("CartStatus");
 
-                    b.Property<int>("UserId");
+                    b.Property<string>("User");
 
                     b.HasKey("ShoppingCartId");
 
@@ -97,7 +97,7 @@ namespace smintbuster.Migrations.Category
 
             modelBuilder.Entity("smintbuster.Modals.ProductModel", b =>
                 {
-                    b.HasOne("smintbuster.Modals.CategoryModel", "Category")
+                    b.HasOne("smintbuster.Modals.CategoryModel")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);

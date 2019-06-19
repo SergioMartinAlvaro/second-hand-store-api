@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace smintbuster.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class MigrateUsers : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,7 +44,8 @@ namespace smintbuster.Migrations
                     Discriminator = table.Column<string>(nullable: false),
                     NickName = table.Column<string>(type: "nvarchar(150)", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(150)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(150)", nullable: true)
+                    LastName = table.Column<string>(type: "nvarchar(150)", nullable: true),
+                    UserType = table.Column<string>(type: "nvarchar(150)", nullable: true)
                 },
                 constraints: table =>
                 {

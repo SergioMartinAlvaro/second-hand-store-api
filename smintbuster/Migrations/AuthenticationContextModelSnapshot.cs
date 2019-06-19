@@ -202,6 +202,9 @@ namespace smintbuster.Migrations
                     b.Property<string>("NickName")
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<string>("UserType")
+                        .HasColumnType("nvarchar(150)");
+
                     b.ToTable("ApplicationUser");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
@@ -251,11 +254,6 @@ namespace smintbuster.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
-
-            modelBuilder.Entity<ApplicationCategory>(eb =>
-            {
-                eb.Property(b => b.Name).HasColumnType("varchar(200)");
-            });
 #pragma warning restore 612, 618
         }
     }

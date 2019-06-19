@@ -5,9 +5,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using smintbuster.Modals;
@@ -18,6 +20,7 @@ namespace smintbuster.Controllers
     [ApiController]
     public class ApplicationUserController : ControllerBase
     {
+        private readonly AuthenticationContext _context;
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationSettings _appSettings;
@@ -27,6 +30,33 @@ namespace smintbuster.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _appSettings = appSettings.Value;
+        }
+
+        // GET: api/Category
+        [HttpGet]
+        [Authorize]
+        [Route("users")]
+        public IEnumerable<ApplicationUser> GetAllUsers()
+        {
+            var users = _userManager.Users;
+            return users;
+        }
+
+
+        // DELETE: api//5
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteUserModel([FromRoute] string id)
+        {
+            var categoryModel = await _userManager.Users.Where(p => p.Id == id)
+                .Select(p => p).FirstAsync();
+            _userManager.DeleteAsync(categoryModel);
+            if (categoryModel == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(categoryModel);
         }
 
         [HttpPost]

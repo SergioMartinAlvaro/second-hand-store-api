@@ -10,8 +10,8 @@ using smintbuster.Modals;
 namespace smintbuster.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
-    [Migration("20190429150200_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190617163357_MigrateUsers")]
+    partial class MigrateUsers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -202,6 +202,9 @@ namespace smintbuster.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("NickName")
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("UserType")
                         .HasColumnType("nvarchar(150)");
 
                     b.ToTable("ApplicationUser");
